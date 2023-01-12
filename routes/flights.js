@@ -14,6 +14,15 @@ router.get('/new', flightsCtrl.new)
 // POST /flights
 router.post('/', flightsCtrl.create)
 
+// GET /flights/show
+router.get('/show/:id', flightsCtrl.show)
+
+
+
+
+
+
+
 
 export {
   router
