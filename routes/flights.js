@@ -1,6 +1,10 @@
 import { Router } from 'express'
 import * as flightsCtrl from '../controllers/flights.js'
 
+
+
+
+
 const router = Router()
 
 //localhost:3000/flights
@@ -15,7 +19,13 @@ router.get('/new', flightsCtrl.new)
 router.post('/', flightsCtrl.create)
 
 // GET /flights/show
-router.get('/show/:id', flightsCtrl.show)
+router.get('/:id', flightsCtrl.show)
+
+
+router.post('/:id/tickets', flightsCtrl.createTicket)
+
+
+// router.delete('/show/:id', flightsCtrl.delete)
 
 
 

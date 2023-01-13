@@ -7,10 +7,11 @@
   <table>
     <thead>
       <tr>
-        <th>airline</th>
-        <th>airport</th>
-        <th>flightNo</th>
-        <th>departs</th>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>FlightNo</th>
+        <th>Departs</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -22,11 +23,13 @@
           <td><%= flight.airport %></td>
           <td><%= flight.flightNo %></td>
           <td><%= flight.departs %></td>
-          <td><a href="flights/show/<%= flight._id %>">Details</button></td>
+          <td><a href="flights/<%= flight._id %>">Details</button></td>
         </tr>
      <% }) %>
     </tbody>
   </table>
+
+
 </main>
 
 <%- include("../partials/footer") %>

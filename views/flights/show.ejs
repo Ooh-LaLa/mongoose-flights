@@ -15,7 +15,51 @@
     <div><%= flight.flightNo %></div>
     <div>Departs: </div>
     <div><%= flight.departs %></div>
-  </form>
+</section>
+<section>
+  <!-- <tbody>
+    <% flight.tickets.forEach(ticket => { %>
+      <tr>
+        <td><%= ticket.seat %></td>
+        <td><%= ticket.price %></td>
+        <td><a href="flights/show/<%= ticket._id %>">Ticket</button></td>
+      </tr> 
+    <% })%>
+  </tbody>
+</section>
 </main>
-  
+   -->
+<section>
+   <% if (flight.tickets.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Seat</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.tickets.forEach(function(ticket) { %>
+          <tr>
+            <td><%= ticket.seat %></td>
+            <td><%= ticket.price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No Tickets Yet</h3>
+  <% } %>
+</section>
+
+<section>
+  <form id="new-form" action="/flights/<%= flight._id %>/tickets" method="POST">
+    <label for="seat-input">Seat:</label>
+    <input name="seat" required pattern="[A-F][1-9]\d?" type="String">
+    <label for="price-input">Price:</label>
+    <input type="Number" name="price">
+    <button type="submit">Add Ticket</button>
+  </form>
+</section>
+
 <%- include('../partials/footer') %>
