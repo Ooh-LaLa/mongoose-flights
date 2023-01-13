@@ -1,0 +1,34 @@
+<%- include('../partials/html-head') %>
+<!-- <link rel="stylesheet" href="/stylesheets/flights/new.css" /> -->
+<%- include('../partials/nav') %>
+
+	<h1><%= title %></h1>
+   
+  
+
+  
+  </p>
+  <form id="add-meal-form" action="/meals" method="POST">
+    <label for="name-input">Name:</label>
+    <input type="text" name="name" id="name-input">
+    <button type="submit">Add Meal</button>
+  </form>
+  <section>
+    <% if (meals.length) { %>
+     <h3>Meals</h3>
+     <table>
+       <tbody>
+         <% meals.forEach(function(meal) { %>
+           <tr>
+             <td><%= meal.name %></td>
+           </tr>
+         <% }) %>
+       </tbody>
+     </table>
+   <% } else { %>
+     <h3>No Meals Yet</h3>
+   <% } %>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

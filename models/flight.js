@@ -30,15 +30,18 @@ const flightSchema = new Schema({
     max: 9999},
   departs: {
     type: Date,
-    //   timestamps: true
   },
-  tickets: [ticketSchema]},
-)
+  tickets: [ticketSchema],
+  meals: [{ type: Schema.Types.ObjectId, ref: 'Meal' }]
+}, {
+  timestamps: true,
+})
+
 
 
 const Flight = mongoose.model('Flight', flightSchema)
 
 
 export {
-  Flight,
+  Flight
 }
